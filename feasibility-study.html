@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feasibility Study — Milk Tea Pakistan</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0704;
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.7;
+        }
+
+        /* Header bar */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+            background: rgba(15, 7, 4, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(199, 145, 60, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header a {
+            text-decoration: none;
+        }
+
+        .header-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #E8C872, #C7913C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-back {
+            font-size: 0.8rem;
+            color: rgba(232, 200, 114, 0.6);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .header-back:hover {
+            color: #E8C872;
+        }
+
+        /* Hero section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #1a0a02 0%, #2d1810 50%, #1a0a02 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(199, 145, 60, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #E8C872 0%, #C7913C 40%, #E8C872 70%, #C7913C 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-meta {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 0.1em;
+        }
+
+        .hero-verdict {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid rgba(199, 145, 60, 0.4);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #E8C872;
+        }
+
+        /* Content area */
+        .content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+        }
+
+        /* Section styling */
+        .section {
+            margin-bottom: 3.5rem;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #E8C872;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(199, 145, 60, 0.15);
+        }
+
+        .section h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: rgba(232, 200, 114, 0.8);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 300;
+        }
+
+        .section strong {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .section ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1rem;
+        }
+
+        .section ul li {
+            padding: 0.4rem 0 0.4rem 1.5rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 300;
+        }
+
+        .section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #C7913C;
+        }
+
+        /* Highlight box */
+        .highlight {
+            background: rgba(199, 145, 60, 0.06);
+            border: 1px solid rgba(199, 145, 60, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight p {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Tables */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 1rem 0 1.5rem;
+            border-radius: 10px;
+            border: 1px solid rgba(199, 145, 60, 0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        thead {
+            background: rgba(199, 145, 60, 0.1);
+        }
+
+        th {
+            padding: 0.75rem 1rem;
+            text-align: left;
+            font-weight: 500;
+            color: #E8C872;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 0.65rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            color: rgba(255, 255, 255, 0.65);
+            font-weight: 300;
+        }
+
+        tr:hover td {
+            background: rgba(199, 145, 60, 0.03);
+        }
+
+        td strong {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .note {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.35);
+            margin-top: 0.5rem;
+        }
+
+        /* Sources */
+        .sources {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(199, 145, 60, 0.1);
+        }
+
+        .sources h2 {
+            font-size: 1.2rem;
+        }
+
+        .sources ul li {
+            font-size: 0.8rem;
+        }
+
+        .sources a {
+            color: rgba(199, 145, 60, 0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .sources a:hover {
+            color: #E8C872;
+        }
+
+        /* Footer */
+        .page-footer {
+            text-align: center;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .content { padding: 2rem 1.2rem 3rem; }
+            table { font-size: 0.78rem; }
+            th, td { padding: 0.5rem 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html"><span class="header-brand">Milk Tea Pakistan</span></a>
+        <a href="index.html" class="header-back">&larr; Home</a>
+    </div>
+
+    <div class="hero">
+        <div class="hero-icon">🧋</div>
+        <h1>Feasibility Study</h1>
+        <p class="hero-meta">Milk Tea Chain in Pakistan &middot; February 2026</p>
+        <div class="hero-verdict">Verdict: GO</div>
+    </div>
+
+    <div class="content">
+
+        <!-- Executive Summary -->
+        <div class="section">
+            <h2>Executive Summary</h2>
+            <div class="highlight">
+                <p>Pakistan presents a <strong>high-potential, early-stage market</strong> for a milk tea (boba/bubble tea) chain. The country is the world's largest tea importer ($611M in 2023), has a median age of ~21 years, and a deep-rooted chai culture that creates natural familiarity with tea-based beverages.</p>
+                <p>As of early 2025, only <strong>~31 bubble tea stores</strong> exist across the country &mdash; a 14.8% increase from 2023 &mdash; signaling growing demand but low saturation. The global bubble tea market is growing at 8&ndash;9.5% CAGR and is projected to reach $5&ndash;9B by 2032&ndash;2035.</p>
+                <p><strong>Verdict:</strong> Feasible with strong upside, but requires careful localization, cost management, and phased rollout.</p>
+            </div>
+        </div>
+
+        <!-- 1. Market Analysis -->
+        <div class="section">
+            <h2>1. Market Analysis</h2>
+
+            <h3>1.1 Pakistan's Tea Culture</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+                    <tbody>
+                        <tr><td>Total tea market revenue (2025)</td><td><strong>~$2.41 billion</strong></td></tr>
+                        <tr><td>Tea imports (2023)</td><td><strong>$611 million / 236,000 tonnes</strong></td></tr>
+                        <tr><td>Per capita tea consumption</td><td><strong>~1 kg/year</strong> (global avg: 0.79 kg)</td></tr>
+                        <tr><td>Market growth (CAGR 2025&ndash;2030)</td><td><strong>8.14%</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Pakistan is the <strong>world's #1 tea importer</strong>. Tea ("chai") is not just a beverage &mdash; it is a social ritual embedded in daily life across all income levels. This deep cultural affinity for tea is a <strong>massive advantage</strong> for a milk tea chain, as the product doesn't need to be introduced from scratch.</p>
+
+            <h3>1.2 Target Demographics</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Demographic Factor</th><th>Data</th></tr></thead>
+                    <tbody>
+                        <tr><td>Total population</td><td><strong>~240 million+</strong></td></tr>
+                        <tr><td>Median age</td><td><strong>~21 years</strong></td></tr>
+                        <tr><td>Under 30</td><td><strong>64%</strong> of population</td></tr>
+                        <tr><td>Ages 15&ndash;29</td><td><strong>29%</strong> (~70 million people)</td></tr>
+                        <tr><td>Urban population</td><td><strong>~35%</strong> (~90 million)</td></tr>
+                        <tr><td>Urbanization projection</td><td><strong>50%</strong> by 2050</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Primary target:</strong> Urban millennials and Gen Z (ages 15&ndash;35) in Tier 1 cities &mdash; Lahore, Karachi, Islamabad/Rawalpindi.</p>
+            <p><strong>Secondary target:</strong> University students, young professionals, and social-media-active consumers.</p>
+
+            <h3>1.3 Consumer Behavior Drivers</h3>
+            <ul>
+                <li><strong>Social media influence:</strong> TikTok drives 74% of consumer familiarity with bubble tea globally. Pakistan's TikTok user base is among the largest in South Asia.</li>
+                <li><strong>Caf&eacute; culture boom:</strong> The past decade has seen explosive growth in caf&eacute;s and casual dining in Pakistani cities.</li>
+                <li><strong>Customization appeal:</strong> Young consumers value personalized drinks (sweetness levels, ice levels, toppings).</li>
+                <li><strong>Instagrammability:</strong> Visually appealing boba drinks drive organic social sharing.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Competitive Landscape -->
+        <div class="section">
+            <h2>2. Competitive Landscape</h2>
+
+            <h3>2.1 Current Market State</h3>
+            <p>As of January 2025, there are only <strong>31 bubble tea stores</strong> across all of Pakistan:</p>
+            <ul>
+                <li><strong>Punjab:</strong> 15 stores</li>
+                <li><strong>Sindh:</strong> 12 stores</li>
+                <li><strong>Khyber Pakhtunkhwa:</strong> 3 stores</li>
+                <li><strong>Other:</strong> 1 store</li>
+            </ul>
+            <p>This is an extremely low number for a 240M+ population, indicating the market is in its <strong>infancy</strong>.</p>
+
+            <h3>2.2 Existing Players</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Brand</th><th>City</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Frostea Boba</strong></td><td>Karachi</td><td>Taiwanese-style, premium, ~PKR 650&ndash;750/cup</td></tr>
+                        <tr><td><strong>Boba Bubble</strong></td><td>Karachi (SMCHS)</td><td>Customizable drinks, classic & fruit teas</td></tr>
+                        <tr><td><strong>Jolly Boba Planet</strong></td><td>Karachi</td><td>Affordable, health-conscious positioning</td></tr>
+                        <tr><td><strong>Chicago Boba</strong></td><td>Karachi</td><td>Instagram-focused, trendy aesthetic</td></tr>
+                        <tr><td><strong>Scream PK</strong></td><td>Karachi</td><td>Dessert + bubble tea combo concept</td></tr>
+                        <tr><td><strong>Boba Express</strong></td><td>Lahore</td><td>Quick-service, exclusive flavor creations</td></tr>
+                        <tr><td><strong>Sweetaholic</strong></td><td>Islamabad</td><td>Boba teas alongside desserts</td></tr>
+                        <tr><td><strong>Bubble Tea House</strong></td><td>Islamabad</td><td>Available on Foodpanda delivery</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>2.3 International Brands</h3>
+            <p>No major international franchise (Gong Cha, Chatime, CoCo, Tiger Sugar) has established a significant presence in Pakistan yet. However:</p>
+            <ul>
+                <li><strong>CoCo Fresh Tea & Juice</strong> announced plans in 2023 to explore Pakistan as a new territory.</li>
+                <li><strong>Chatime</strong> operates in 63+ countries with 3,000 stores and is halal-certified &mdash; a strong fit for Pakistan.</li>
+            </ul>
+
+            <h3>2.4 Competitive Assessment</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Factor</th><th>Opportunity</th><th>Risk</th></tr></thead>
+                    <tbody>
+                        <tr><td>Low store count (31)</td><td>First-mover advantage in many cities</td><td>Market may be nascent &mdash; demand unproven at scale</td></tr>
+                        <tr><td>No dominant national chain</td><td>Room for a brand to "own" the category</td><td>Fragmented, no proven model to replicate</td></tr>
+                        <tr><td>International brands absent</td><td>Time to build brand before they arrive</td><td>They could enter with larger budgets</td></tr>
+                        <tr><td>Deep chai culture</td><td>Natural product affinity</td><td>Consumers may resist 5&ndash;10x chai price</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 3. Location Strategy -->
+        <div class="section">
+            <h2>3. Location Strategy</h2>
+
+            <h3>3.1 Recommended City Prioritization</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Priority</th><th>City</th><th>Population</th><th>Rationale</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Phase 1</strong></td><td>Lahore</td><td>~13M</td><td>Largest youth market, caf&eacute; culture hub, foodie city</td></tr>
+                        <tr><td><strong>Phase 1</strong></td><td>Karachi</td><td>~16M</td><td>Wealthiest city, existing boba demand, cosmopolitan</td></tr>
+                        <tr><td><strong>Phase 2</strong></td><td>Islamabad/Rawalpindi</td><td>~4M</td><td>High-income, expat community, university students</td></tr>
+                        <tr><td><strong>Phase 3</strong></td><td>Faisalabad, Multan, Peshawar</td><td>Various</td><td>Tier 2 expansion after proving concept</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>3.2 Site Selection Criteria</h3>
+            <p><strong>High-priority locations:</strong></p>
+            <ul>
+                <li>Shopping malls (Packages Mall, Emporium, Dolmen Mall, Centaurus)</li>
+                <li>University zones (LUMS, NUST, IBA, UET surroundings)</li>
+                <li>High-street food areas (M.M. Alam Road Lahore, Zamzama/Clifton Karachi, F-6/F-7 Islamabad)</li>
+                <li>Food courts and food streets</li>
+            </ul>
+
+            <h3>3.3 Store Format Options</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Format</th><th>Size</th><th>Best For</th></tr></thead>
+                    <tbody>
+                        <tr><td>Kiosk / Counter</td><td>100&ndash;200 sq ft</td><td>Malls, food courts &mdash; low rent, high footfall</td></tr>
+                        <tr><td>Small Caf&eacute;</td><td>300&ndash;600 sq ft</td><td>High streets, university zones</td></tr>
+                        <tr><td>Full Caf&eacute; + Seating</td><td>800&ndash;1,200 sq ft</td><td>Flagship stores, brand-building</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>3.4 Commercial Rent Estimates (2024&ndash;2025)</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>City</th><th>Approx. Rate (per sq ft/month)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Lahore (prime)</td><td>PKR 135+</td></tr>
+                        <tr><td>Karachi (prime)</td><td>PKR 113+</td></tr>
+                        <tr><td>Islamabad (prime)</td><td>PKR 120&ndash;150 (estimated)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note">Mall rents are significantly higher, often PKR 250&ndash;500+ per sq ft depending on the mall.</p>
+        </div>
+
+        <!-- 4. Menu & Product Strategy -->
+        <div class="section">
+            <h2>4. Menu & Product Strategy</h2>
+
+            <h3>4.1 Core Menu</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Category</th><th>Examples</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Classic Milk Teas</strong></td><td>Original milk tea, taro milk tea, brown sugar milk tea</td></tr>
+                        <tr><td><strong>Fruit Teas</strong></td><td>Mango passion fruit, lychee, peach oolong</td></tr>
+                        <tr><td><strong>Desi-Fusion</strong></td><td>Masala chai boba, karak boba, cardamom milk tea, rose milk tea</td></tr>
+                        <tr><td><strong>Specialty</strong></td><td>Matcha latte boba, chocolate boba, Oreo milk tea</td></tr>
+                        <tr><td><strong>Toppings</strong></td><td>Tapioca pearls, popping boba, jelly, pudding, cheese foam</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>4.2 Localization &mdash; Key Differentiator</h3>
+            <div class="highlight">
+                <p>The <strong>desi-fusion</strong> category is critical for Pakistan. Blending familiar chai flavors (cardamom, cinnamon, masala) with the boba format creates a product that:</p>
+                <ul>
+                    <li>Feels familiar yet novel</li>
+                    <li>Differentiates from international brands</li>
+                    <li>Justifies pricing vs. street chai</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Pricing Strategy</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Tier</th><th>Price Range (PKR)</th><th>Target</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Value</strong></td><td>350&ndash;500</td><td>Students, price-sensitive consumers</td></tr>
+                        <tr><td><strong>Standard</strong></td><td>500&ndash;750</td><td>Core offering, most drinks</td></tr>
+                        <tr><td><strong>Premium</strong></td><td>750&ndash;1,000</td><td>Specialty drinks, cheese foam, limited editions</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note">Context: A cup of street chai costs PKR 30&ndash;80. A caf&eacute; latte costs PKR 400&ndash;700. Boba should be priced at or slightly above caf&eacute; beverages.</p>
+
+            <h3>4.4 Add-on Revenue</h3>
+            <ul>
+                <li>Snack pairings (chicken popcorn, fries, waffles &mdash; common in Pakistani caf&eacute;s)</li>
+                <li>Merchandise (branded cups, tumblers)</li>
+                <li>Loyalty programs / stamp cards</li>
+            </ul>
+        </div>
+
+        <!-- 5. Supply Chain -->
+        <div class="section">
+            <h2>5. Supply Chain</h2>
+
+            <h3>5.1 Key Ingredients & Sourcing</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Ingredient</th><th>Source</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Tea base</strong> (black, green, oolong)</td><td>Local</td><td>Easy to source high quality locally</td></tr>
+                        <tr><td><strong>Tapioca pearls</strong></td><td>Import (Taiwan, China, Thailand)</td><td>Core product &mdash; must ensure consistent quality</td></tr>
+                        <tr><td><strong>Popping boba / jellies</strong></td><td>Import (Taiwan, China)</td><td>Specialty toppings</td></tr>
+                        <tr><td><strong>Flavoring syrups</strong></td><td>Import or local</td><td>Can partner with local syrup manufacturers</td></tr>
+                        <tr><td><strong>Fresh milk / creamer</strong></td><td>Local dairy (Engro, Nestl&eacute;, Olper's)</td><td>Pakistan has a strong dairy industry</td></tr>
+                        <tr><td><strong>Cups, straws, packaging</strong></td><td>Local manufacturing</td><td>Custom branding possible locally</td></tr>
+                        <tr><td><strong>Sealing machines / equipment</strong></td><td>Import (China, Taiwan)</td><td>One-time cost</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>5.2 Supply Chain Risks & Mitigation</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Risk</th><th>Mitigation</th></tr></thead>
+                    <tbody>
+                        <tr><td>PKR depreciation increases import costs</td><td>Gradually shift to local production for syrups/toppings</td></tr>
+                        <tr><td>Inconsistent tapioca supply</td><td>Maintain 2&ndash;3 supplier relationships; bulk inventory</td></tr>
+                        <tr><td>Cold chain for perishables</td><td>Partner with local dairy suppliers for daily delivery</td></tr>
+                        <tr><td>Import delays at customs</td><td>Keep 4&ndash;6 weeks buffer stock</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 6. Financial Projections -->
+        <div class="section">
+            <h2>6. Financial Projections</h2>
+
+            <h3>6.1 Startup Costs (Single Store &mdash; Caf&eacute; Format)</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Item</th><th>Cost (PKR)</th><th>Cost (USD)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Store renovation & interior design</td><td>2,500,000 &ndash; 4,000,000</td><td>$9,000 &ndash; $14,300</td></tr>
+                        <tr><td>Equipment (sealing machine, blenders, refrigeration, POS)</td><td>1,500,000 &ndash; 2,500,000</td><td>$5,400 &ndash; $9,000</td></tr>
+                        <tr><td>Initial inventory (tea, tapioca, syrups, cups)</td><td>500,000 &ndash; 800,000</td><td>$1,800 &ndash; $2,900</td></tr>
+                        <tr><td>Security deposit (3&ndash;6 months rent)</td><td>600,000 &ndash; 1,500,000</td><td>$2,100 &ndash; $5,400</td></tr>
+                        <tr><td>Branding & signage</td><td>300,000 &ndash; 500,000</td><td>$1,100 &ndash; $1,800</td></tr>
+                        <tr><td>Legal & licensing fees</td><td>100,000 &ndash; 200,000</td><td>$360 &ndash; $720</td></tr>
+                        <tr><td>Marketing (launch campaign)</td><td>500,000 &ndash; 1,000,000</td><td>$1,800 &ndash; $3,600</td></tr>
+                        <tr><td>Working capital (3 months)</td><td>1,500,000 &ndash; 2,500,000</td><td>$5,400 &ndash; $9,000</td></tr>
+                        <tr><td><strong>TOTAL</strong></td><td><strong>7,500,000 &ndash; 13,000,000</strong></td><td><strong>$27,000 &ndash; $46,700</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note">Exchange rate assumed: ~PKR 278/USD</p>
+
+            <h3>6.2 Monthly Operating Costs (Single Store)</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Item</th><th>Monthly Cost (PKR)</th></tr></thead>
+                    <tbody>
+                        <tr><td>Rent (500 sq ft @ PKR 200/sq ft avg)</td><td>100,000 &ndash; 200,000</td></tr>
+                        <tr><td>Staff (5&ndash;7 employees)</td><td>200,000 &ndash; 350,000</td></tr>
+                        <tr><td>Raw materials / inventory</td><td>300,000 &ndash; 500,000</td></tr>
+                        <tr><td>Utilities (electricity, gas, water)</td><td>50,000 &ndash; 80,000</td></tr>
+                        <tr><td>Marketing & social media</td><td>50,000 &ndash; 100,000</td></tr>
+                        <tr><td>Delivery platform commissions</td><td>30,000 &ndash; 60,000</td></tr>
+                        <tr><td>Miscellaneous</td><td>30,000 &ndash; 50,000</td></tr>
+                        <tr><td><strong>TOTAL</strong></td><td><strong>760,000 &ndash; 1,340,000</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>6.3 Revenue Projections (Single Store)</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Scenario</th><th>Cups/Day</th><th>Avg. Price</th><th>Monthly Revenue</th><th>Monthly Profit</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Conservative</strong></td><td>80</td><td>PKR 550</td><td>1,320,000</td><td>~Breakeven</td></tr>
+                        <tr><td><strong>Moderate</strong></td><td>150</td><td>PKR 600</td><td>2,700,000</td><td>1,000,000 &ndash; 1,500,000</td></tr>
+                        <tr><td><strong>Optimistic</strong></td><td>250</td><td>PKR 600</td><td>4,500,000</td><td>2,500,000 &ndash; 3,000,000</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><strong>Gross margin</strong> on bubble tea is typically <strong>60&ndash;70%</strong>, making it a high-margin product.</p>
+
+            <h3>6.4 Break-Even Analysis</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Scenario</th><th>Estimated Break-Even</th></tr></thead>
+                    <tbody>
+                        <tr><td>Conservative (80 cups/day)</td><td>18&ndash;24 months</td></tr>
+                        <tr><td>Moderate (150 cups/day)</td><td>6&ndash;10 months</td></tr>
+                        <tr><td>Optimistic (250 cups/day)</td><td>3&ndash;5 months</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 7. Legal & Regulatory -->
+        <div class="section">
+            <h2>7. Legal & Regulatory Requirements</h2>
+
+            <h3>7.1 Business Registration</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Step</th><th>Authority</th><th>Details</th></tr></thead>
+                    <tbody>
+                        <tr><td>Company registration</td><td>SECP</td><td>Register as sole proprietorship, partnership, or private limited company</td></tr>
+                        <tr><td>National Tax Number (NTN)</td><td>FBR</td><td>Required for tax compliance</td></tr>
+                        <tr><td>Sales tax registration</td><td>Provincial Revenue Authority</td><td>For sales tax on services</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>7.2 Food & Safety Licenses</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>License</th><th>Authority</th><th>Notes</th></tr></thead>
+                    <tbody>
+                        <tr><td>Food license</td><td>Provincial Food Authority (PFA/SFA/KPFSA)</td><td><strong>Mandatory</strong> &mdash; all food businesses</td></tr>
+                        <tr><td>Trade license</td><td>Local municipal authority</td><td>City-level business permit</td></tr>
+                        <tr><td>Health certificate</td><td>City health department</td><td>Hygiene and safety compliance</td></tr>
+                        <tr><td>Fire safety certificate</td><td>Civil defence / fire department</td><td>Required for commercial premises</td></tr>
+                        <tr><td>Hotel & Restaurant registration</td><td>Pakistan Hotels & Restaurants Act, 1976</td><td>Registration before opening</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>7.3 Compliance Risks</h3>
+            <ul>
+                <li><strong>Penalty for non-registration:</strong> Up to 1 year imprisonment + PKR 500,000 fine</li>
+                <li>Food authorities conduct regular inspections &mdash; maintain hygiene standards</li>
+                <li>Halal compliance is essential (all ingredients must be halal-certified)</li>
+                <li>If importing ingredients, you'll need an <strong>import license</strong> and must clear customs duties</li>
+            </ul>
+        </div>
+
+        <!-- 8. Marketing Strategy -->
+        <div class="section">
+            <h2>8. Marketing Strategy</h2>
+
+            <h3>8.1 Brand Positioning</h3>
+            <div class="highlight">
+                <p>Position as: <strong>"Your chai, reimagined"</strong> &mdash; bridging Pakistan's deep chai culture with the global boba trend. Neither fully foreign nor fully traditional.</p>
+            </div>
+
+            <h3>8.2 Marketing Channels</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Channel</th><th>Strategy</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>TikTok</strong></td><td>Short-form videos, challenges, influencer partnerships (74% of boba awareness from TikTok)</td></tr>
+                        <tr><td><strong>Instagram</strong></td><td>Aesthetic photography, reels, stories, user-generated content</td></tr>
+                        <tr><td><strong>Food delivery apps</strong></td><td>Foodpanda, Careem &mdash; essential for reach and convenience</td></tr>
+                        <tr><td><strong>Influencer marketing</strong></td><td>Partner with Pakistani food bloggers and lifestyle influencers</td></tr>
+                        <tr><td><strong>University activations</strong></td><td>Free sampling events at LUMS, NUST, IBA, UET etc.</td></tr>
+                        <tr><td><strong>Launch events</strong></td><td>Grand opening with free drinks, limited-time offers</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>8.3 Marketing Budget (Year 1)</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Phase</th><th>Budget (PKR)</th><th>Focus</th></tr></thead>
+                    <tbody>
+                        <tr><td>Pre-launch (2 months)</td><td>500,000 &ndash; 1,000,000</td><td>Social media teasing, influencer seeding</td></tr>
+                        <tr><td>Launch month</td><td>500,000 &ndash; 1,000,000</td><td>Grand opening, free sampling, PR</td></tr>
+                        <tr><td>Ongoing monthly</td><td>50,000 &ndash; 150,000</td><td>Social media ads, influencer collaborations</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 9. Risk Assessment -->
+        <div class="section">
+            <h2>9. Risk Assessment</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Price sensitivity</strong></td><td>High</td><td>High</td><td>Offer value tier (350&ndash;500 PKR); desi-fusion justifies premium</td></tr>
+                        <tr><td><strong>Currency depreciation</strong></td><td>High</td><td>Medium</td><td>Localize supply chain; hedge purchases; bulk import</td></tr>
+                        <tr><td><strong>International competitor entry</strong></td><td>Medium</td><td>High</td><td>Build loyalty early; own "desi boba" niche</td></tr>
+                        <tr><td><strong>Seasonal demand dip</strong></td><td>Medium</td><td>Medium</td><td>Offer hot boba drinks in winter</td></tr>
+                        <tr><td><strong>Regulatory hurdles</strong></td><td>Medium</td><td>Low</td><td>Budget time; use a local legal advisor</td></tr>
+                        <tr><td><strong>Supply chain disruption</strong></td><td>Low</td><td>High</td><td>Multiple suppliers; consider local tapioca production</td></tr>
+                        <tr><td><strong>Cultural mismatch</strong></td><td>Low</td><td>Medium</td><td>Desi-fusion branding; use chai vocabulary</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- 10. Recommendations -->
+        <div class="section">
+            <h2>10. Recommendations & Next Steps</h2>
+
+            <div class="highlight">
+                <p><strong>Go / No-Go Assessment: GO</strong> (with conditions)</p>
+                <p>The opportunity is strong, but execution must be disciplined.</p>
+            </div>
+
+            <h3>Recommended Action Plan</h3>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Phase</th><th>Timeline</th><th>Actions</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Phase 0: Validation</strong></td><td>Month 1&ndash;2</td><td>Visit existing boba shops; conduct consumer taste tests; finalize menu</td></tr>
+                        <tr><td><strong>Phase 1: Launch</strong></td><td>Month 3&ndash;6</td><td>Open 1 flagship store in Lahore or Karachi; prove unit economics</td></tr>
+                        <tr><td><strong>Phase 2: Optimize</strong></td><td>Month 7&ndash;12</td><td>Hit 150+ cups/day; refine menu; build social media brand</td></tr>
+                        <tr><td><strong>Phase 3: Expand</strong></td><td>Year 2</td><td>Open 2&ndash;3 more stores (second city); consider franchise model</td></tr>
+                        <tr><td><strong>Phase 4: Scale</strong></td><td>Year 3+</td><td>8&ndash;15 stores across 3 cities; evaluate franchise partnerships</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Critical Success Factors</h3>
+            <ul>
+                <li><strong>Desi localization</strong> &mdash; don't just copy Taiwanese menus; make it Pakistani</li>
+                <li><strong>Social media first</strong> &mdash; TikTok and Instagram are your primary growth engines</li>
+                <li><strong>Prime location</strong> &mdash; foot traffic is everything in the early stages</li>
+                <li><strong>Price discipline</strong> &mdash; offer a value entry point while maintaining margins</li>
+                <li><strong>Supply chain reliability</strong> &mdash; never run out of tapioca pearls</li>
+            </ul>
+        </div>
+
+        <!-- Sources -->
+        <div class="section sources">
+            <h2>Sources</h2>
+            <ul>
+                <li><a href="https://www.statista.com/outlook/cmo/hot-drinks/tea/pakistan" target="_blank">Statista: Tea Market Pakistan</a></li>
+                <li><a href="https://agrieconomist.com/tea-consumption-in-pakistan-culture-and-economy" target="_blank">Tea Consumption in Pakistan: Culture & Economy</a></li>
+                <li><a href="https://bloompakistan.com/top-bubble-tea-cafes-karachi-2025/" target="_blank">Top Bubble Tea Caf&eacute;s in Karachi 2025</a></li>
+                <li><a href="https://heypakistani.com/best-bubble-tea-in-lahore/" target="_blank">5 Best Bubble Tea in Lahore</a></li>
+                <li><a href="https://rentechdigital.com/smartscraper/business-report-details/list-of-bubble-tea-stores-in-pakistan" target="_blank">List of Bubble Tea Stores in Pakistan</a></li>
+                <li><a href="https://www.frosteaboba.pk/" target="_blank">Frostea Boba Pakistan</a></li>
+                <li><a href="https://bubbleteasupply.pk/" target="_blank">Bubble Tea Supply Pakistan</a></li>
+                <li><a href="https://www.futuremarketinsights.com/reports/bubble-tea-market" target="_blank">Future Market Insights: Bubble Tea Market 2025&ndash;2035</a></li>
+                <li><a href="https://www.fortunebusinessinsights.com/industry-reports/bubble-tea-market-101564" target="_blank">Fortune Business Insights: Bubble Tea Market</a></li>
+                <li><a href="https://www.mordorintelligence.com/industry-reports/bubble-tea-market" target="_blank">Mordor Intelligence: Bubble Tea Market</a></li>
+                <li><a href="https://www.burhanlaw.com/restaurant-registration-pakistan" target="_blank">Restaurant Registration in Pakistan</a></li>
+                <li><a href="https://tencoconsulting.com/food-authority-license-pakistan/" target="_blank">Food Authority License Pakistan</a></li>
+                <li><a href="https://www.foodnerdpos.com/blogs/easy-tips-on-how-to-register-your-restaurant-in-pakistan" target="_blank">How to Register Your Restaurant in Pakistan</a></li>
+                <li><a href="https://www.worldometers.info/world-population/pakistan-population/" target="_blank">Pakistan Population Demographics</a></li>
+                <li><a href="https://hdr.undp.org/content/unleashing-potential-young-pakistan" target="_blank">UNDP: Unleashing the Potential of a Young Pakistan</a></li>
+                <li><a href="https://www.graana.com/blog/federal-governments-rental-rate-increase-hits-commercial-properties-nationwide/" target="_blank">Commercial Rent Rates Pakistan</a></li>
+                <li><a href="https://pos.toasttab.com/blog/on-the-line/how-much-does-it-cost-to-open-a-boba-shop" target="_blank">Bubble Tea Franchise Costs</a></li>
+                <li><a href="https://www.fortunebusinessinsights.com/blog/top-bubble-tea-brands-in-the-world-11011" target="_blank">Top Bubble Tea Brands Global</a></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="page-footer">
+        &copy; 2026 Milk Tea Pakistan &middot; All rights reserved
+    </div>
+</body>
+</html>
