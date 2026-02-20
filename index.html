@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milk Tea Pakistan — Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a0a02 0%, #2d1810 30%, #4a2c1a 60%, #1a0a02 100%);
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating boba pearls */
+        .pearl {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #8B6914, #4a3500);
+            opacity: 0.15;
+            animation: float linear infinite;
+        }
+
+        .pearl:nth-child(1) { width: 60px; height: 60px; left: 5%; animation-duration: 18s; animation-delay: 0s; }
+        .pearl:nth-child(2) { width: 40px; height: 40px; left: 15%; animation-duration: 22s; animation-delay: -3s; }
+        .pearl:nth-child(3) { width: 80px; height: 80px; left: 30%; animation-duration: 25s; animation-delay: -7s; }
+        .pearl:nth-child(4) { width: 35px; height: 35px; left: 50%; animation-duration: 20s; animation-delay: -5s; }
+        .pearl:nth-child(5) { width: 55px; height: 55px; left: 65%; animation-duration: 23s; animation-delay: -2s; }
+        .pearl:nth-child(6) { width: 45px; height: 45px; left: 80%; animation-duration: 19s; animation-delay: -8s; }
+        .pearl:nth-child(7) { width: 70px; height: 70px; left: 90%; animation-duration: 26s; animation-delay: -4s; }
+        .pearl:nth-child(8) { width: 30px; height: 30px; left: 42%; animation-duration: 21s; animation-delay: -6s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Warm glow overlay */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(199, 145, 60, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Tea cup icon */
+        .icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: steam 3s ease-in-out infinite;
+        }
+
+        @keyframes steam {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .brand {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            line-height: 1.1;
+            margin-bottom: 0.3em;
+            background: linear-gradient(135deg, #E8C872 0%, #C7913C 40%, #E8C872 70%, #C7913C 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .tagline {
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(232, 200, 114, 0.6);
+            margin-bottom: 3rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #C7913C, transparent);
+            margin: 0 auto 2.5rem;
+        }
+
+        .coming-soon {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 600;
+            color: #E8C872;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .description {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            max-width: 420px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        /* Email signup */
+        .signup {
+            display: flex;
+            gap: 0;
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 50px;
+            overflow: hidden;
+            border: 1px solid rgba(199, 145, 60, 0.3);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+        }
+
+        .signup input {
+            flex: 1;
+            padding: 0.9rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 300;
+            outline: none;
+        }
+
+        .signup input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .signup button {
+            padding: 0.9rem 1.8rem;
+            border: none;
+            background: linear-gradient(135deg, #C7913C, #E8C872);
+            color: #1a0a02;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+
+        .signup button:hover {
+            opacity: 0.85;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 2rem;
+            z-index: 10;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.25);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: #E8C872;
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating boba pearls -->
+    <div class="pearl"></div>
+    <div class="pearl"></div>
+    <div class="pearl"></div>
+    <div class="pearl"></div>
+    <div class="pearl"></div>
+    <div class="pearl"></div>
+    <div class="pearl"></div>
+    <div class="pearl"></div>
+
+    <div class="container">
+        <div class="icon">🧋</div>
+        <h1 class="brand">Milk Tea Pakistan</h1>
+        <p class="tagline">Your Chai, Reimagined</p>
+        <div class="divider"></div>
+        <p class="coming-soon">Coming Soon</p>
+        <p class="description">
+            A new boba experience crafted for Pakistan — blending the flavors you love with something entirely new.
+        </p>
+        <form class="signup" onsubmit="event.preventDefault(); this.innerHTML='<p style=\'padding:0.9rem;color:#E8C872;font-size:0.85rem;\'>Thank you! We\'ll be in touch.</p>';">
+            <input type="email" placeholder="Enter your email for updates" required>
+            <button type="submit">Notify Me</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">Contact</a>
+    </div>
+</body>
+</html>
